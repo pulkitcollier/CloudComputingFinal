@@ -1,9 +1,9 @@
-# IBM Natural Language Understanding
+# IBM Natural Language Understanding API
 
 [API Reference](https://www.ibm.com/watson/developercloud/natural-language-understanding/api/v1/#post-analyze)
 
-### credentials
-```
+### Credentials
+```json
 {
   "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
   "username": "1cf24c73-d509-4cef-b381-e68021d54064",
@@ -11,13 +11,13 @@
 }
 ```
 
-### npm
-```
+### SDK
+```bash
 npm install watson-developer-cloud
 ```
 
-### authentication
-```
+### Authentication
+```javascript
 var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
 var natural_language_understanding = new NaturalLanguageUnderstandingV1({
   'username': '{username}',
@@ -26,20 +26,13 @@ var natural_language_understanding = new NaturalLanguageUnderstandingV1({
 });
 ```
 
-### request
-```
-var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
-var natural_language_understanding = new NaturalLanguageUnderstandingV1({
-  'username': '{username}',
-  'password': '{password}',
-  'version_date': '2017-02-27'
-});
-
+### Request
+```javascript
 var parameters = {
   'text': tweet.content, 
   'features': {
     'sentiment': {
-      'document':true
+      'document': true
     }
   }
 }
@@ -51,8 +44,9 @@ natural_language_understanding.analyze(parameters, function(err, response) {
     console.log(JSON.stringify(response, null, 2));
 });
 ```
-reponse
-```
+
+* Reponse
+```json
 {
  "sentiment": {
   "document": {
