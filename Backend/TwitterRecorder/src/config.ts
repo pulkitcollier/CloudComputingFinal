@@ -10,15 +10,15 @@ export const watsonConfig = [{
     password: 'ZRjLQk2JGzQQ',
     version_date: '2017-02-27'
 }, {
-    username: 'e986a3c6-23b0-42f7-a472-5d11a1252096',
-    password: 'gqumT5KzcaXe',
+    username: '032f97ea-4ede-4b08-af60-35e2108cc187',
+    password: 'sDvgBDdRB1nS',
     version_date: '2017-02-27'
 }, {
-    username: '63ea14dc-7f3a-490c-85cf-340cfb93961d',
-    password: 'mrRj8bK40pZV',
+    username: 'a6439d46-0dc6-4c04-9e9d-d246abbab4ff',
+    password: '7EkoBVTHL1lJ',
     version_date: '2017-02-27'
 }, {
-    username: 'b4e343ad-fb04-4a70-9c26-3aea94abd3be',
-    password: 'a6nQt2gTQkO6',
+    username: 'fb0d03af-cea5-438c-8c95-7857111a021a',
+    password: 'sUMEuRhRPeoK',
     version_date: '2017-02-27'
 }];
