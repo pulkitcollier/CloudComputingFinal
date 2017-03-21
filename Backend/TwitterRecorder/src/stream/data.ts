@@ -1,6 +1,6 @@
 export class Data {
     static Fields: string[] = ['UserId', 'UserName', 'FollowerCount', 'FriendCount',
-        'Content', 'Location', 'Timestamp', 'FavoriteCount', 'RetweetCount', 'Truncated', 'IsReply', 'Score'];
+        'Content', 'Latitude', 'Longitude', 'Timestamp', 'FavoriteCount', 'RetweetCount', 'Truncated', 'IsReply', 'Score'];
 
     UserId: number;
     UserName: string;
@@ -8,17 +8,18 @@ export class Data {
     FriendCount: number;
 
     Content: string;
-    Location: { Latitude: number, Longitude: number };
+    Latitude: number;
+    Longitude: number;
     Timestamp: number;
     FavoriteCount: number;
     RetweetCount: number;
-    Truncated: boolean;
-    ReplyTo?: number;
+    Truncated: number;
+    ReplyTo: number;
 
-    Score?: number;
+    Score: number | string;
 
     toArray(): any[] {
         return [this.UserId, this.UserName, this.FollowerCount, this.FriendCount,
-        this.Content, this.Location, this.Timestamp, this.FavoriteCount, this.RetweetCount, this.Truncated, this.ReplyTo, this.Score];
+            this.Content, this.Latitude, this.Longitude, this.Timestamp, this.FavoriteCount, this.RetweetCount, this.Truncated, this.ReplyTo, this.Score];
     }
 }
