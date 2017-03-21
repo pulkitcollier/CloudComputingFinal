@@ -1,5 +1,7 @@
 # IBM Natural Language Understanding
 
+[API Reference](https://www.ibm.com/watson/developercloud/natural-language-understanding/api/v1/#post-analyze)
+
 ### credentials
 ```
 {
