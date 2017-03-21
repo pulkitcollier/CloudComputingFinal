@@ -40,7 +40,7 @@ key5
 {
   "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
   "username": "f29cc04d-f319-4f0e-b76a-2de788c043f9",
-  "password": “NrBabQg87uPy”
+  "password": "NrBabQg87uPy"
 
 }
 ```
