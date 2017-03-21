@@ -1,6 +1,6 @@
 export class Data {
     static Fields: string[] = ['UserId', 'UserName', 'FollowerCount', 'FriendCount',
-        'Content', 'Latitude', 'Longitude', 'Timestamp', 'FavoriteCount', 'RetweetCount', 'Truncated', 'IsReply', 'Score'];
+        'Content', 'Latitude', 'Longitude', 'Timestamp', 'FavoriteCount', 'RetweetCount', 'Truncated', 'ReplyTo', 'Score'];
 
     UserId: number;
     UserName: string;
