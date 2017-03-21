@@ -15,6 +15,7 @@ const csvwriter_1 = require("../csv/csvwriter");
 const sentiment_1 = require("../watson/sentiment");
 class TwitterStreamRetriever {
     constructor(twitConfig, watsonConfig) {
+        this.count = 1;
         this.twit = new Twit(twitConfig);
         this.writer = new csvwriter_1.CSVWriter(data_1.Data.Fields);
         this.analyzer = new sentiment_1.SentimentAnalyzer(watsonConfig);
@@ -30,6 +31,8 @@ class TwitterStreamRetriever {
                 d.Timestamp = Date.now();
                 d.Score = yield this.analyzer.analyze(d.Content);
                 this.writer.write(d.toArray());
+                if (this.count % 100 === 0)
+                    console.log(`Recorded tweet: ${this.count++}`);
             }
             catch (err) {
                 console.log(`Cannot score ${tweet.text}`);
