@@ -62,3 +62,21 @@ reponse
  }
 }
 ```
+
+### Tweet fields
+- Users: 
+1. id
+2. followers_count
+3. friends_count
+4. name
+
+- Tweet:
+0. text #actual content 
+1. coordinates # for geo info
+2. created_at #time
+3. favorite_count 
+4. retweet_count
+5. truncated #boolean: indicates whether the value of the text parameter was truncated, for example, as a result of a retweet exceeding the 140 character Tweet length. Truncated text will end in ellipsis, like this ...
+6. possibly_sensitive #boolean: Nullable This field only surfaces when a Tweet contains a link. 
+7. user.id #who posted this tweet
+8. in_reply_to_user_id #nullable if it is not a reply
