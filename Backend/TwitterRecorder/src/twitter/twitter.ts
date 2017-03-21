@@ -28,7 +28,7 @@ export class TwitterStreamRetriever {
                 d.Score = await this.analyzer.analyze(d.Content);
 
                 this.writer.write(d.toArray());
-                if (this.count % 100 === 0) console.log(`Recorded tweet: ${this.count++}`);
+                if ((this.count % 100) === 0) console.log(`Recorded tweet: ${this.count++}`);
             } catch (err) {
                 console.log(`Cannot score ${tweet.text}`);
             }
