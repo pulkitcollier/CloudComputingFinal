@@ -1,4 +1,4 @@
-# Calling IBM Natural Language Understanding
+# IBM Natural Language Understanding
 
 ### credentials
 ```
@@ -9,3 +9,54 @@
 }
 ```
 
+### npm
+```
+npm install watson-developer-cloud
+```
+
+### authentication
+```
+var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
+var natural_language_understanding = new NaturalLanguageUnderstandingV1({
+  'username': '{username}',
+  'password': '{password}',
+  'version_date': '2017-02-27'
+});
+```
+
+### request
+```
+var NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-language-understanding/v1.js');
+var natural_language_understanding = new NaturalLanguageUnderstandingV1({
+  'username': '{username}',
+  'password': '{password}',
+  'version_date': '2017-02-27'
+});
+
+var parameters = {
+  'text': tweet.content, 
+  'features': {
+    'sentiment': {
+      'document':true
+    }
+  }
+}
+
+natural_language_understanding.analyze(parameters, function(err, response) {
+  if (err)
+    console.log('error:', err);
+  else
+    console.log(JSON.stringify(response, null, 2));
+});
+```
+reponse
+```
+{
+ "sentiment": {
+  "document": {
+   "score": -0.478408,
+   "label": "negative"
+  }
+ }
+}
+```
