@@ -11,47 +11,31 @@ key1
   "password": "ZRjLQk2JGzQQ"
 }
 ```
-key2
+key2-plan:try1
 ```json
 {
   "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
-  "username": "e986a3c6-23b0-42f7-a472-5d11a1252096",
-  "password": "gqumT5KzcaXe"
+  "username": "032f97ea-4ede-4b08-af60-35e2108cc187",
+  "password": "sDvgBDdRB1nS"
 }
 ```
-key3
+key3-plan:try2
 ```json
 {
   "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
-  "username": "63ea14dc-7f3a-490c-85cf-340cfb93961d",
-  "password": "mrRj8bK40pZV"
+  "username": "a6439d46-0dc6-4c04-9e9d-d246abbab4ff",
+  "password": "7EkoBVTHL1lJ"
 }
 ```
-key4
+key4-plan:try3
 ```json
 {
   "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
-  "username": "b4e343ad-fb04-4a70-9c26-3aea94abd3be",
-  "password": "a6nQt2gTQkO6"
+  "username": "fb0d03af-cea5-438c-8c95-7857111a021a",
+  "password": "sUMEuRhRPeoK"
 }
 ```
-key5
-```json
-{
-  "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
-  "username": "f29cc04d-f319-4f0e-b76a-2de788c043f9",
-  "password": "NrBabQg87uPy"
 
-}
-```
-key6
-```json
-{
-  "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
-  "username": "893cd3a5-0187-41ad-9dae-67100ab10204",
-  "password": "MpGnVsNhzb4X"
-}
-```
 
 ### SDK
 ```bash
