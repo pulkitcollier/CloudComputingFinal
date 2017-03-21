@@ -35,6 +35,23 @@ key4
   "password": "a6nQt2gTQkO6"
 }
 ```
+key5
+```json
+{
+  "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
+  "username": "f29cc04d-f319-4f0e-b76a-2de788c043f9",
+  "password": “NrBabQg87uPy”
+
+}
+```
+key6
+```json
+{
+  "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
+  "username": "893cd3a5-0187-41ad-9dae-67100ab10204",
+  "password": "MpGnVsNhzb4X"
+}
+```
 
 ### SDK
 ```bash
