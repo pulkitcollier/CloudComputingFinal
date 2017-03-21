@@ -3,11 +3,20 @@
 [API Reference](https://www.ibm.com/watson/developercloud/natural-language-understanding/api/v1/#post-analyze)
 
 ### Credentials
+key1
 ```json
 {
   "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
   "username": "1cf24c73-d509-4cef-b381-e68021d54064",
   "password": "ZRjLQk2JGzQQ"
+}
+```
+key2
+```
+{
+  "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
+  "username": "e986a3c6-23b0-42f7-a472-5d11a1252096",
+  "password": "gqumT5KzcaXe"
 }
 ```
 
