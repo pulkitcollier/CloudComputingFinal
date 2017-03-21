@@ -8,7 +8,6 @@ export class TwitterStreamRetriever {
     private readonly twit: Twit;
     private readonly writer: CSVWriter;
     private readonly analyzer: SentimentAnalyzer;
-    private count: number = 1;
 
     constructor(twitConfig: Twit.Options, watsonConfig: any) {
         this.twit = new Twit(twitConfig);
