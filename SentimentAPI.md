@@ -35,7 +35,30 @@ key4-plan:try3
   "password": "sUMEuRhRPeoK"
 }
 ```
-
+key5-plan:try4
+```json
+{
+  "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
+  "username": "c92945a8-daec-416e-8eae-8bfc869d48ea",
+  "password": "cFP3uFBrHD0N"
+}
+```
+key6-plan:try5
+```json
+{
+  "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
+  "username": "2e96864b-156a-43d7-8059-2faecffb5c3c",
+  "password": "ESPDZA7jpv6j"
+}
+```
+key7-plan:try6
+```json
+{
+  "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
+  "username": "56279904-a714-4bc8-b507-9168a79420c6",
+  "password": "PRUF0nHH4qFF"
+}
+```
 
 ### SDK
 ```bash
