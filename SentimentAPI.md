@@ -12,7 +12,7 @@ key1
 }
 ```
 key2
-```
+```json
 {
   "url": "https://gateway.watsonplatform.net/natural-language-understanding/api",
   "username": "e986a3c6-23b0-42f7-a472-5d11a1252096",
