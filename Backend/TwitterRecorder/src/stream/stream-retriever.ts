@@ -37,12 +37,12 @@ export class TwitterStreamRetriever {
             d.FavoriteCount = tweet.favorite_count;
             d.RetweetCount = tweet.retweet_count;
             d.Truncated = tweet.truncated ? 1 : 0;
-            d.ReplyTo = tweet.in_reply_to_user_id ? tweet.in_reply_to_user_id : 'N/A';
+            d.ReplyTo = tweet.in_reply_to_user_id ? tweet.in_reply_to_user_id : 'NULL';
 
             try {
                 d.Score = await this.analyzer.analyze(d.Content);
             } catch (err) {
-                d.Score = 'N/A';
+                d.Score = 'NULL';
                 console.log(`Cannot score (${err}) ${tweet.text}`);
             }
             this.writer.write(d.toArray());
