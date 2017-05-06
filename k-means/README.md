@@ -52,8 +52,8 @@ cluster 0 acitivty count mean: 3.6607717041800645
 cluster 0 acitivty count std: 2.797923899514602    
 
 ### alert logic  
-if sentiment score 1 std above mean, alert: user is happier;  
-elif acitivty 1st lower and sentiment is 1 std lower, alert: user is sadier and low activity;      
+if sentiment score is 1 std above mean, alert: user is happier;  
+elif acitivty is 1 std lower and sentiment is 1 std lower, alert: user is sadier and low activity;      
 elif sentiment is 1 std lower, alert: user is sadier;  
 
 ### data required to predict cluster label
