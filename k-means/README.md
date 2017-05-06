@@ -36,7 +36,7 @@ Cluster 1: activity_count; friendsCount; statusesCount; favoritesCount; follower
 
 ### cluster interpretation
 
-cluster interpretation
+cluster interpretation  
 the second cluster (label 1) is the much smaller cluster, where there is higher follower, favarites count, activity_count, but the averaged_scores is much lower  
 
 ### threshold based on clusters
@@ -56,7 +56,7 @@ elif acitivty 1st lower and sentiment is 1 std lower, alert: user is sadier and 
 elif sentiment is 1 std lower, alert: user is sadier;  
 
 ### data required to predict cluster label
-features: followerCount, favoritesCount, friendsCount, statusesCount, activity_count, averaged_scores 
+features: followerCount, favoritesCount, friendsCount, statusesCount, activity_count, averaged_scores   
 `averaged_scores` is the aggregated tweet sentiment scores per week / total number of tweets per week   
 
 ### running logic 
