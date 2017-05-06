@@ -8,7 +8,7 @@ pick `n_cluster = 2`, based on the `silhouette_score`
 
 ### silhouette plot:
 activity count vs. averaged sentiment score  
-![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/Screen%20Shot%202017-05-06%20at%201.54.30%20AM.png)
+![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/plot.png)
 
 ### cluster center (values are scaled)  
 
@@ -36,7 +36,7 @@ Cluster 1: activity_count; friendsCount; statusesCount; favoritesCount; follower
 
 ### cluster interpretation
 
-cluster interpretation
+cluster interpretation  
 the second cluster (label 1) is the much smaller cluster, where there is higher follower, favarites count, activity_count, but the averaged_scores is much lower  
 
 ### threshold based on clusters
@@ -54,3 +54,14 @@ cluster 1 acitivty count std: 2.797923899514602
 if sentiment score 1 std above mean, alert: user is happier;  
 elif acitivty 1st lower and sentiment is 1 std lower, alert: user is sadier and low activity;      
 elif sentiment is 1 std lower, alert: user is sadier;  
+
+### data required to predict cluster label
+features: followerCount, favoritesCount, friendsCount, statusesCount, activity_count, averaged_scores   
+`averaged_scores` is the aggregated tweet sentiment scores per week / total number of tweets per week   
+
+### running logic 
+1. when each tweet flushes in, backend calls Natural Language Understanding API to get its sentiment score
+2. backend (keeps a counter of the weekly aggregated score (weekly_score += score) in the database) or (stores each tweet_id, its score and a time stamp into the database , and use SQL to calculate each user's aggregated sentiment score on a weekly basis). 
+3. backend (keeps a counter of number of tweets made by the user on a weekly basis), or (simply keeps tweet_id and time_stamp in the database, and perform SQL count every week). 
+4. each week, clf.predict([followerCount, favoritesCount, friendsCount, statusesCount, activity_count, averaged_scores]), and given cluster id, get the alert threshold for each user.   
+
