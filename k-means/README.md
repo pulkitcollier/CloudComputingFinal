@@ -43,12 +43,13 @@ the second cluster (label 1) is the much smaller cluster, where there is higher 
 
 cluster 1 sentiment score mean: 0.08360699882213349  
 cluster 1 sentiment score std: 0.29093559299695276  
-cluster 0 sentiment score mean: 0.10865536663218373  
-cluster 1 sentiment score std: 0.37495564769102363  
 cluster 1 acitivty count mean: 11.97278911564626  
-cluster 1 acitivty count std: 7.633690267430216   
+cluster 1 acitivty count std: 7.633690267430216
+
+cluster 0 sentiment score mean: 0.10865536663218373  
+cluster 0 sentiment score std: 0.37495564769102363  
 cluster 0 acitivty count mean: 3.6607717041800645  
-cluster 1 acitivty count std: 2.797923899514602    
+cluster 0 acitivty count std: 2.797923899514602    
 
 ### alert logic  
 if sentiment score 1 std above mean, alert: user is happier;  
