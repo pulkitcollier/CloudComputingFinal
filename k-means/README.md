@@ -61,7 +61,7 @@ features: followerCount, favoritesCount, friendsCount, statusesCount, activity_c
 
 ### running logic 
 1. when each tweet flushes in, backend calls Natural Language Understanding API to get its sentiment score
-2. backend keeps a counter of the weekly aggregated score (weekly_score += score) in the database or stores each tweet_id, its score and a time stamp nto the database , and calculate each user's aggregated sentiment score on a weekly basis. 
-3. backend keeps a counter of number of tweets made by the user on a weekly basis, or simply keeps tweet_id and time_stamp in the database, and perform SQL count every week. 
-4. each week, clf.predict([followerCount, favoritesCount, friendsCount, statusesCount, activity_count, averaged_scores]), and given cluster id, get the alert threshold for each user. 
+2. backend (keeps a counter of the weekly aggregated score (weekly_score += score) in the database) or (stores each tweet_id, its score and a time stamp into the database , and use SQL to calculate each user's aggregated sentiment score on a weekly basis). 
+3. backend (keeps a counter of number of tweets made by the user on a weekly basis), or (simply keeps tweet_id and time_stamp in the database, and perform SQL count every week). 
+4. each week, clf.predict([followerCount, favoritesCount, friendsCount, statusesCount, activity_count, averaged_scores]), and given cluster id, get the alert threshold for each user.   
 
