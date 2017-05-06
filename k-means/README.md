@@ -8,7 +8,7 @@ pick `n_cluster = 2`, based on the `silhouette_score`
 
 ### silhouette plot:
 activity count vs. averaged sentiment score  
-![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/Screen%20Shot%202017-05-06%20at%201.54.30%20AM.png)
+![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/plot.png)
 
 ### cluster center (values are scaled)  
 
