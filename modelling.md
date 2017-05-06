@@ -1,5 +1,8 @@
 # Profiling user behavior using K-means
 
+### data source
+719 user and their aggreagted weekly behavior in Manhattan region   
+
 ### final result  
 pick `n_cluster = 2`, based on the `silhouette_score`   
 
@@ -30,7 +33,7 @@ Cluster 1: activity_count; friendsCount; statusesCount; favoritesCount; follower
 ### cluster interpretation
 
 cluster interpretation
-the second cluster (1) is the small cluster, where there is higher follower, favarites count, activity_cout, but the averaged_scores is much lower  
+the second cluster (label 1) is the much smaller cluster, where there is higher follower, favarites count, activity_count, but the averaged_scores is much lower  
 
 ### threshold based on clusters
 
