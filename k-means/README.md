@@ -72,4 +72,4 @@ features: followerCount, favoritesCount, friendsCount, statusesCount, activity_c
 4. each week, clf.predict([followerCount, favoritesCount, friendsCount, statusesCount, activity_count, averaged_scores]), and given cluster id, get the alert threshold for each user.   
 
 ## <a name=ac></a> Accelerometer Data Clustering
-![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/accelerometer_plot.png)
+![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/accelorometer_plot.png)
