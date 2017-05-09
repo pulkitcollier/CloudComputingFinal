@@ -1,5 +1,10 @@
-# Profiling user behavior using K-means
+# Modelling Description
 
+## Table of Content
+- [Tweet User Profiling](#tf)
+- [Accelerometer Data Clustering](#ac) 
+
+### <a name=tf></a> Tweet User Profiling using K-means
 ### data source
 719 user and their aggreagted weekly behavior in Manhattan region   
 
@@ -66,3 +71,5 @@ features: followerCount, favoritesCount, friendsCount, statusesCount, activity_c
 3. backend (keeps a counter of number of tweets made by the user on a weekly basis), or (simply keeps tweet_id and time_stamp in the database, and perform SQL count every week). 
 4. each week, clf.predict([followerCount, favoritesCount, friendsCount, statusesCount, activity_count, averaged_scores]), and given cluster id, get the alert threshold for each user.   
 
+## <a name=ac></a> Accelerometer Data Clustering
+![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/accelerometer_plot.png)
