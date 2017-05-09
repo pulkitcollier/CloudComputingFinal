@@ -72,6 +72,13 @@ features: followerCount, favoritesCount, friendsCount, statusesCount, activity_c
 4. each week, clf.predict([followerCount, favoritesCount, friendsCount, statusesCount, activity_count, averaged_scores]), and given cluster id, get the alert threshold for each user.   
 
 ## <a name=ac></a> Accelerometer Data Clustering
+### data source
+[Accelerometer Biometric Competition](https://www.kaggle.com/c/accelerometer-biometric-competition/data)
+
+### dataset description:
+387 unique users's milisecond level X,Y,Z recordings. 
+if zoomed out to second level, each user (device ID) has aggregated data  ~5 seconds. For example:
+![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/acc_s_plot.png) 
 
 ### features 
 features: ['X_avg', 'Y_avg', 'Z_avg', 'X_absdif', 'Y_absdif', 'Z_absdif']  
@@ -107,4 +114,12 @@ Cluster 0: X_absdif; Y_absdif; Z_absdif; X_avg; Z_avg; Y_avg;
 Cluster 1: Y_avg; Z_avg; X_avg; Z_absdif; Y_absdif; X_absdif;  
 
 ### cluster interpretation:
-Cluster 0 is a cluster where `Z_absdif` is large 
+Cluster 0 is a cluster where large `Z_absdif`, `Y_absdif`,`X_absdif`  indicate large up-down movement (lift (picking up or dropping the device)), large tilt (lean back or forward), large twist(like turning a doorknob)  
+Cluster 1's center indicates it is relative stable   
+
+### alert logic:
+if previously clustered as 1 but now predicted as 0: alert -> "user's phone encounters drastic movement" 
+if stays within cluster 1 but the feature values are now 2 std away from the mean, alert -> "user's phone is likely encountering some unstable movement"   
+
+### further improvement with more data:
+create user biometric from accelerometer data 
