@@ -72,4 +72,39 @@ features: followerCount, favoritesCount, friendsCount, statusesCount, activity_c
 4. each week, clf.predict([followerCount, favoritesCount, friendsCount, statusesCount, activity_count, averaged_scores]), and given cluster id, get the alert threshold for each user.   
 
 ## <a name=ac></a> Accelerometer Data Clustering
-![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/accelorometer_plot.png)
+
+### features 
+features: ['X_avg', 'Y_avg', 'Z_avg', 'X_absdif', 'Y_absdif', 'Z_absdif']  
+where X_avg is averged X coordinates within a second interval     
+      Y_avg is averged Y coordinates within a second interval     
+      Z_avg is averged Z coordinates within a second interval      
+      X_absdif is the accumulated absolute difference in X value within a second interval   
+      Y_absdif is the accumulated absolute difference in Y value within a second interval   
+      Z_absdif is the accumulated absolute difference in Z value within a second interval   
+### plot  
+Z_absdif vs. Z_avg  
+![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/accelorometer_plot.png)  
+
+### centroid center
+cluster 0  (smaller class) 
+X_avg 0.136169661507  
+Y_avg -0.210280809267  
+Z_avg -0.105182184924  
+X_absdif 3.20219695185  
+Y_absdif 3.20059614029  
+Z_absdif 3.18194324775  
+
+cluster 1
+X_avg -0.00866534209588  
+Y_avg 0.0133815060443 
+Z_avg 0.00669341176789  
+X_absdif -0.203776169663  
+Y_absdif -0.203674299837  
+Z_absdif -0.202487297584  
+
+### feature importance rank (left most importance)
+Cluster 0: X_absdif; Y_absdif; Z_absdif; X_avg; Z_avg; Y_avg;  
+Cluster 1: Y_avg; Z_avg; X_avg; Z_absdif; Y_absdif; X_absdif;  
+
+### cluster interpretation:
+Cluster 0 is a cluster where `Z_absdif` is large 
