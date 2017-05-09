@@ -88,7 +88,12 @@ where X_avg is averged X coordinates within a second interval
       X_absdif is the accumulated absolute difference in X value within a second interval   
       Y_absdif is the accumulated absolute difference in Y value within a second interval   
       Z_absdif is the accumulated absolute difference in Z value within a second interval   
-### plot  
+      
+### metrics
+pick `n_clusters = 2`, based on it having the highest silhouette score.    
+
+
+### silhouette plot  
 Z_absdif vs. Z_avg  
 ![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/accelorometer_plot.png)  
 
@@ -114,7 +119,8 @@ Cluster 0: X_absdif; Y_absdif; Z_absdif; X_avg; Z_avg; Y_avg;
 Cluster 1: Y_avg; Z_avg; X_avg; Z_absdif; Y_absdif; X_absdif;  
 
 ### cluster interpretation:
-Cluster 0 is a cluster where large `Z_absdif`, `Y_absdif`,`X_absdif`  indicate large up-down movement (lift (picking up or dropping the device)), large tilt (lean back or forward), large twist(like turning a doorknob)  
+Cluster 0 is a cluster where large `Z_absdif`, `Y_absdif`,`X_absdif`  indicate large up-down movement (lift (picking up or dropping the device)), large tilt (lean back or forward), large twist(like turning a doorknob)    
+  
 Cluster 1's center indicates it is relative stable   
 
 ### alert logic:
