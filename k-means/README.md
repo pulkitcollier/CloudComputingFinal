@@ -161,7 +161,7 @@ cluster 0 acitivty count std: 112456.086
 
 
 ### alert logic:
-if previously clustered as 1 but now predicted as 0: alert -> "user's phone encounters drastic movement" 
+if previously clustered as 1 but now predicted as 0: alert -> "user's phone encounters drastic movement";    
 if stays within cluster 1 but the feature values are now 2 std away from the mean, alert -> "user's phone is likely encountering some unstable movement"   
 
 ### further improvement with more data:
