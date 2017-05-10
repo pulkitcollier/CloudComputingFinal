@@ -120,7 +120,7 @@ payload = { # predict 0
 ### data source
 [Accelerometer Biometric Competition](https://www.kaggle.com/c/accelerometer-biometric-competition/data)
 
-### dataset description:
+### processed dataset description:
 387 unique users's milisecond level X,Y,Z recordings. 
 if zoomed out to second level, each user (device ID) has aggregated data for example:  
 ![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/acc_s_plot.png) 
