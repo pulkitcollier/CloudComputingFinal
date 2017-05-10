@@ -14,7 +14,7 @@ password: emilyhua
 
 main postgres quering:
 
-1. generate acc model input
+1. generate acc model input    
 [model required fields](#ac):  
 'X_avg', 'Y_avg', 'Z_avg', 'X_absdif', 'Y_absdif', 'Z_absdif'    
 
@@ -34,7 +34,7 @@ returns
 1	2017-05-08 17:05:00.0	1365.9446356864705882	1300.4917711764705882	1555.6344253941176471	23217.28597024	21966.626767	26374.7551293  
 2	2017-05-08 17:05:00.0	6096.8248121570588235	5348.0361829411764706	6619.1764253941176471	103642.24897024	90774.881767	112454.9691293  
 ```
-2. generate tweet model input
+2. generate tweet model input   
 [model required fields](#tf): 
 "followerCount"，"favoritesCount"，"friendsCount"，"statusesCount"， "activity_count"， "averaged_scores"    
 
