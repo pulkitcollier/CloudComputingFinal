@@ -12,6 +12,26 @@ Endpoint: cc-apollo.cbnpvhclb9ix.us-east-1.rds.amazonaws.com:5432/apollo
 username: yh2901  
 password: emilyhua  
 
+main postgres quering:
+1. generate acc model input
+```
+SELECT deviceid, a.T, avg(a.X) as X_avg, avg(a.Y) as Y_avg, avg(a.Z) as Z_avg, 
+          sum(a.X_absdiff) as X_absdiff, sum(a.Y_absdiff) as Y_absdiff, sum(a.Z_absdiff) as Z_absdiff 
+FROM
+(SELECT deviceid, T, X, Y, Z, 
+       abs(X - lag(X) OVER (PARTITION BY  deviceid ORDER BY T)) as X_absdiff,
+       abs(Y - lag(Y) OVER (PARTITION BY  deviceid ORDER BY T)) as Y_absdiff,
+       abs(Z - lag(Z) OVER (PARTITION BY  deviceid ORDER BY T)) as Z_absdiff
+FROM acc)a
+GROUP BY a.deviceid , a.T;
+```
+returns 
+```
+1	2017-05-08 17:05:00.0	1365.9446356864705882	1300.4917711764705882	1555.6344253941176471	23217.28597024	21966.626767	26374.7551293  
+2	2017-05-08 17:05:00.0	6096.8248121570588235	5348.0361829411764706	6619.1764253941176471	103642.24897024	90774.881767	112454.9691293  
+```
+
+
 ### <a name=tf></a> Tweet User Profiling using K-means
 ### REST
 http://35.184.204.97:8081/getTstats?favoritesCount=19607&followerCount=1243&friendsCount=657&averaged_scores=0.999&activity_count=1&statusesCount=14259
