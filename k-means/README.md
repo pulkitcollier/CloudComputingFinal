@@ -31,6 +31,8 @@ returns
 2	2017-05-08 17:05:00.0	6096.8248121570588235	5348.0361829411764706	6619.1764253941176471	103642.24897024	90774.881767	112454.9691293  
 ```
 2. generate tweet model input
+
+* BETWEEN date_x AND date_y will not include date_y records but you date_y-1; say you want to the window be  2017-05-08 and 2017-05-09 (inclusive), then you need to write the query as `where createtime BETWEEN '2017-05-08' and '2017-05-10'`
 ```
 select  userid, 
         avg(followercount) as followerCount,
@@ -40,13 +42,13 @@ select  userid,
         count(*) as activity_count, 
         avg(tweetscore) as averaged_scores
 from tweet 
-where createtime BETWEEN '2017-05-08' and '2017-05-09'
+where createtime BETWEEN '2017-05-08' and '2017-05-10'
 group by userid;
 ```
 returns
 ```
-1	1243.0000000000000000	19607.0000000000000000	657.0000000000000000	14259.0000000000000000	1	0.80000000000000000000
-2	3.0000000000000000	50.0000000000000000	30.0000000000000000	29.0000000000000000	1	-0.70000000000000000000
+1	1243.0000000000000000	19607.000000000000	657.0000000000000000	14259.5000000000000000	2	0.70000000000000000000
+2	3.0000000000000000	50.0000000000000000	30.5000000000000000	29.5000000000000000	2	-0.60000000000000000000
 ```
 ### <a name=tf></a> Tweet User Profiling using K-means
 ### REST
