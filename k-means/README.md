@@ -5,6 +5,30 @@
 - [Accelerometer Data Clustering](#ac) 
 
 ### <a name=tf></a> Tweet User Profiling using K-means
+### REST
+http://35.184.204.97:8081/getTstats?favoritesCount=19607&followerCount=1243&friendsCount=657&averaged_scores=0.999&activity_count=1&statusesCount=14259
+
+returns:
+```
+for cluster 0:
+{"activity_count_std": 2.798, "cluster_number": 0, "sentiment_score_std": 0.375}  
+
+for cluster 1:  
+{"activity_count_std": 7.634, "cluster_number": 1, "sentiment_score_std": 0.291}
+```
+```
+payload = {  
+    "followerCount": 1243,  
+"favoritesCount": 19607,  
+"friendsCount": 657,  
+"statusesCount": 14259,  
+"activity_count": 1,  
+"averaged_scores": 0.999,  
+}  
+post = requests.post(url, params=payload)  
+#post = requests.post(url, data=json.dumps(payload))  
+print(post.text)   
+```
 ### data source
 719 user and their aggreagted weekly behavior in Manhattan region   
 
@@ -72,6 +96,27 @@ features: followerCount, favoritesCount, friendsCount, statusesCount, activity_c
 4. each week, clf.predict([followerCount, favoritesCount, friendsCount, statusesCount, activity_count, averaged_scores]), and given cluster id, get the alert threshold for each user.   
 
 ## <a name=ac></a> Accelerometer Data Clustering
+### REST
+http://35.184.204.97:8081/getAstats?X_avg=0.87&X_absdif=212750.185&Y_absdif=193742.799&Z_absdif=233020.013&Z_avg=4.791&Y_avg=2.875
+
+returns:
+```
+for cluster 0 
+{"Z_absdif_std": 112456.086, "cluster_number": 0, "X_avg_std": 1.387, "Z_avg_std": 2.166, "X_absdif_std": 103641.064, "Y_avg_std": 2.069, "Y_absdif_std": 90782.264} 
+
+for cluster 1
+{"Z_absdif_std": 26375.872, "cluster_number": 1, "X_avg_std": 2.123, "Z_avg_std": 3.229, "X_absdif_std": 23216.101, "Y_avg_std": 2.937, "Y_absdif_std": 21974.009}
+```
+```
+payload = { # predict 0
+    "X_avg": 0.870 ,
+    "Y_avg":  2.875,
+    "Z_avg": 4.791,
+    "X_absdif": 212750.185,
+    "Y_absdif":   193742.799,
+    "Z_absdif":  233020.013,
+}
+```
 ### data source
 [Accelerometer Biometric Competition](https://www.kaggle.com/c/accelerometer-biometric-competition/data)
 
