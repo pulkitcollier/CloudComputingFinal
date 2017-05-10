@@ -135,7 +135,8 @@ where X_avg is averged X coordinates within a second interval
       Z_absdif is the accumulated absolute difference in Z value within a second interval   
       
 ### metrics
-pick `n_clusters = 2`, based on it having the highest silhouette score.    
+pick `n_clusters = 2`, based on it having the highest silhouette score.      
+10362 second level aggregated samples. 
 
 
 ### silhouette plot  
