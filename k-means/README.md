@@ -213,3 +213,18 @@ if stays within cluster 1 but the feature values are now 2 std away from the mea
 
 ### further improvement with more data:
 create user biometric from accelerometer data 
+
+### data processed with hive
+hive ql: be aware of nanosecond linux timestamp will creak on Python Pandas
+```
+SELECT a.T_seclevel as T, avg(a.X) as X_avg, avg(a.Y) as Y_avg, avg(a.Z) as Z_avg, 
+          sum(a.X_absdiff) as X_absdiff, sum(a.Y_absdiff) as Y_absdiff, sum(a.Z_absdiff) as Z_absdiff 
+FROM
+ (SELECT Device,from_unixtime(CAST(T/1000 as BIGINT), 'yyyy-MM-dd HH:MM:SS')  as T_seclevel, X, Y, Z, 
+ 	abs(LAG(X, 1, 0) OVER (PARTITION BY  Device ORDER BY T) - X) as X_absdiff,
+ 	abs(LAG(Y, 1, 0) OVER (PARTITION BY  Device ORDER BY T) - Y) as Y_absdiff, 
+ 	abs(LAG(Z, 1, 0) OVER (PARTITION BY  Device ORDER BY T) - Z) as Z_absdiff 
+  FROM acc where Device = 7)a 
+GROUP BY a.Device , a.T_seclevel;
+```
+![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/acc_hive.png)
