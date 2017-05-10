@@ -96,3 +96,29 @@ FROM
        abs(Z - lag(Z) OVER (PARTITION BY  deviceid ORDER BY T)) as Z_absdiff
 FROM acc)a
 GROUP BY a.deviceid , a.T;
+
+
+###########user table##############
+drop table if exists user;
+create table user(
+	userid int primary key,
+    firstname text,
+    lastname text,
+    tweethandle text,
+    registertime timestamp
+);
+INSERT INTO users (userid, firstname, lastname, tweethandle, registertime) 
+VALUES 
+(1, 'Emily', 'Hua', 'emilyyyh2901','2017-05-08 17:05:00' ), 
+(2, 'Vivien', 'Peng', 'little_elf', '2017-05-08 17:06:00')
+
+
+#########create table friendship##########
+CREATE TABLE friendship(
+    fid int primary key,
+    usr int,
+    friend int,
+    foreign key (usr) references users(userid),
+    foreign key (friend) references users(userid)
+)
+--"undirected graph!"
