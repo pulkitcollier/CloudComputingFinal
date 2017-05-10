@@ -1,8 +1,16 @@
 # Modelling Description
 
 ## Table of Content
+- [AWS RDS(Postgres)](#pg)
 - [Tweet User Profiling](#tf)
 - [Accelerometer Data Clustering](#ac) 
+
+### <a name=pg></a> AWS RDS(Postgres）Endpoint
+ 
+Endpoint: cc-apollo.cbnpvhclb9ix.us-east-1.rds.amazonaws.com:5432/apollo  
+
+username: yh2901  
+password: emilyhua  
 
 ### <a name=tf></a> Tweet User Profiling using K-means
 ### REST
