@@ -122,6 +122,43 @@ Cluster 1: Y_avg; Z_avg; X_avg; Z_absdif; Y_absdif; X_absdif;
 Cluster 0 is a cluster where large `Z_absdif`, `Y_absdif`,`X_absdif`  indicate large up-down movement (lift (picking up or dropping the device)), large tilt (lean back or forward), large twist(like turning a doorknob)    
   
 Cluster 1's center indicates it is relative stable   
+### std, mean based on clustering:
+cluster 1 acitivty count mean: 0.568
+cluster 1 acitivty count std: 2.123
+cluster 0 acitivty count mean: 0.870
+cluster 0 acitivty count std: 1.387
+
+
+cluster 1 acitivty count mean: 3.522
+cluster 1 acitivty count std: 2.937
+cluster 0 acitivty count mean: 2.875
+cluster 0 acitivty count std: 2.069
+
+
+cluster 1 acitivty count mean: 5.146
+cluster 1 acitivty count std: 3.229
+cluster 0 acitivty count mean: 4.791
+cluster 0 acitivty count std: 2.166
+
+
+cluster 1 acitivty count mean: 18507.932
+cluster 1 acitivty count std: 23216.101
+cluster 0 acitivty count mean: 212750.185
+cluster 0 acitivty count std: 103641.064
+
+
+cluster 1 acitivty count mean: 17586.737
+cluster 1 acitivty count std: 21974.009
+cluster 0 acitivty count mean: 193742.799
+cluster 0 acitivty count std: 90782.264
+
+
+cluster 1 acitivty count mean: 21612.124
+cluster 1 acitivty count std: 26375.872
+cluster 0 acitivty count mean: 233020.013
+cluster 0 acitivty count std: 112456.086
+
+
 
 ### alert logic:
 if previously clustered as 1 but now predicted as 0: alert -> "user's phone encounters drastic movement" 
