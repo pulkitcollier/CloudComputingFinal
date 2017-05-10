@@ -110,13 +110,13 @@ cluster 1
 X_avg -0.00866534209588  
 Y_avg 0.0133815060443 
 Z_avg 0.00669341176789  
-X_absdif -0.203776169663  
-Y_absdif -0.203674299837  
-Z_absdif -0.202487297584  
+X_absdif -0.203776169663    
+Y_absdif -0.203674299837    
+Z_absdif -0.202487297584    
 
 ### feature importance rank (left most importance)
-Cluster 0: X_absdif; Y_absdif; Z_absdif; X_avg; Z_avg; Y_avg;  
-Cluster 1: Y_avg; Z_avg; X_avg; Z_absdif; Y_absdif; X_absdif;  
+Cluster 0: X_absdif; Y_absdif; Z_absdif; X_avg; Z_avg; Y_avg;    
+Cluster 1: Y_avg; Z_avg; X_avg; Z_absdif; Y_absdif; X_absdif;    
 
 ### cluster interpretation:
 Cluster 0 is a cluster where large `Z_absdif`, `Y_absdif`,`X_absdif`  indicate large up-down movement (lift (picking up or dropping the device)), large tilt (lean back or forward), large twist(like turning a doorknob)    
