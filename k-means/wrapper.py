@@ -19,7 +19,7 @@ from flask import Flask, Response, request, session, g, redirect, url_for, abort
      render_template, flash
 
 from sklearn.externals import joblib
-from thresholds import activity_count_dic, sentiment_score_dic
+from tweet_stats import activity_count_dic, sentiment_score_dic
 from acc_cluster_stats import X_avg_dic, Y_avg_dic, Z_avg_dic, X_absdif_dic, Y_absdif_dic, Z_absdif_dic
 import numpy as np
 import json
