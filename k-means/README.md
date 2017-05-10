@@ -13,7 +13,11 @@ username: yh2901
 password: emilyhua  
 
 main postgres quering:
+
 1. generate acc model input
+[model required fields](#ac):  
+'X_avg', 'Y_avg', 'Z_avg', 'X_absdif', 'Y_absdif', 'Z_absdif'    
+
 ```
 SELECT deviceid, a.T, avg(a.X) as X_avg, avg(a.Y) as Y_avg, avg(a.Z) as Z_avg, 
           sum(a.X_absdiff) as X_absdiff, sum(a.Y_absdiff) as Y_absdiff, sum(a.Z_absdiff) as Z_absdiff 
@@ -31,6 +35,8 @@ returns
 2	2017-05-08 17:05:00.0	6096.8248121570588235	5348.0361829411764706	6619.1764253941176471	103642.24897024	90774.881767	112454.9691293  
 ```
 2. generate tweet model input
+[model required fields](#tf): 
+"followerCount"，"favoritesCount"，"friendsCount"，"statusesCount"， "activity_count"， "averaged_scores"    
 
 * BETWEEN date_x AND date_y will not include date_y records but you date_y-1; say you want to the window be  2017-05-08 and 2017-05-09 (inclusive), then you need to write the query as `where createtime BETWEEN '2017-05-08' and '2017-05-10'`
 ```
