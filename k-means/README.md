@@ -30,8 +30,24 @@ returns
 1	2017-05-08 17:05:00.0	1365.9446356864705882	1300.4917711764705882	1555.6344253941176471	23217.28597024	21966.626767	26374.7551293  
 2	2017-05-08 17:05:00.0	6096.8248121570588235	5348.0361829411764706	6619.1764253941176471	103642.24897024	90774.881767	112454.9691293  
 ```
-
-
+2. generate tweet model input
+```
+select  userid, 
+        avg(followercount) as followerCount,
+        avg(favoritecount) as favoritesCount,
+        avg(friendcount) as friendsCount,
+        avg(statuscount) as statusesCount,
+        count(*) as activity_count, 
+        avg(tweetscore) as averaged_scores
+from tweet 
+where createtime BETWEEN '2017-05-08' and '2017-05-09'
+group by userid;
+```
+returns
+```
+1	1243.0000000000000000	19607.0000000000000000	657.0000000000000000	14259.0000000000000000	1	0.80000000000000000000
+2	3.0000000000000000	50.0000000000000000	30.0000000000000000	29.0000000000000000	1	-0.70000000000000000000
+```
 ### <a name=tf></a> Tweet User Profiling using K-means
 ### REST
 http://35.184.204.97:8081/getTstats?favoritesCount=19607&followerCount=1243&friendsCount=657&averaged_scores=0.999&activity_count=1&statusesCount=14259
