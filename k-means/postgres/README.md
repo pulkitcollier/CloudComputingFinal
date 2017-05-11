@@ -9,3 +9,6 @@
 
 #### acc table (accelerometer) 
 ![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/postgres/assets/acc_table.png)
+
+#### friendship table
+![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/postgres/assets/friendship_table.png)
