@@ -15,3 +15,6 @@
 
 #### sns table
 ![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/postgres/assets/sns_table.png)
+
+#### alert table
+![alt text](https://github.com/MZhoume/E6998S5/blob/master/k-means/postgres/assets/alert_table.png)
