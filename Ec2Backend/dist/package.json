@@ -1,0 +1,23 @@
+{
+  "name": "dist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.40.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "format": "^0.2.2",
+    "pg": "^6.1.5",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
+    "twit": "^2.2.5",
+    "watson-developer-cloud": "^2.28.1"
+  }
+}

@@ -1,8 +1,8 @@
 import Foundation
 
 struct MapsConstant {
-    static let latitude: Double = 21.282778
-    static let longitude: Double = -157.829444
+    static let latitude: Double = 40.75
+    static let longitude: Double = -73.95
     static let distance: Double = 1000
 }
 
@@ -23,4 +23,8 @@ struct SegueIdentifier {
 
     static let Tweet: String = "tweet"
     static let Alert: String = "alert"
+}
+
+struct Data {
+    static var UserId: Int = 0
 }

@@ -28,7 +28,7 @@ gulp.task('zip', function () {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('upload', ['zip'], function () {
+gulp.task('upload', function () {
     return gulp.src('./lambda.zip')
         .pipe(lambda(params, options));
 });

@@ -2,7 +2,11 @@
   "name": "dist",
   "version": "1.0.0",
   "dependencies": {
+    "pg": "^6.1.5",
+    "pg-format": "^1.0.4",
     "request": "^2.81.0",
-    "request-promise": "^4.2.1"
+    "request-promise": "^4.2.1",
+    "twit": "^2.2.5",
+    "watson-developer-cloud": "^2.31.1"
   }
 }

@@ -1,6 +1,14 @@
 import UIKit
 
+struct Friend {
+    var userId: Int
+    var userName: String
+}
+
 class FriendsViewController: UITableViewController {
+
+    var friends: [Friend] = []
+    var filtered: [Friend] = []
 
     var searchActive: Bool = false
 
@@ -8,9 +16,26 @@ class FriendsViewController: UITableViewController {
 
     @IBAction func addFriend(_ sender: UIBarButtonItem) {
         let alertControll = UIAlertController(title: "Add Friend", message: "Please specify their username:", preferredStyle: .alert)
+        alertControll.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = "Enter Friend's UserName"
+        }
+
         alertControll.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alertControll.addAction(UIAlertAction(title: "Add", style: .default, handler: {action in
-            print(action)
+            let friendname = alertControll.textFields![0] as UITextField
+
+            HttpService.post("/users/" + String(Data.UserId) + "/friends", withBody: ["friendname": friendname.text!], handler: {
+                [weak self] e, j in
+                if e != nil {
+                    let alert = UIAlertController(title: "Oops", message: e.debugDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self?.present(alert, animated: true, completion: nil)
+                } else {
+                    let alert = UIAlertController(title: "Done", message: "Successfully added friend!", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self?.present(alert, animated: true, completion: nil)
+                }
+            })
         }))
 
         self.present(alertControll, animated: true, completion: nil)
@@ -20,9 +45,28 @@ class FriendsViewController: UITableViewController {
         super.viewDidLoad()
 
         searchBar.delegate = self
-         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        HttpService.get("/users/" + String(Data.UserId) + "/friends", handler: {
+            [weak self] e, j in
+            if e != nil {
+                let alert = UIAlertController(title: "Oops", message: e.debugDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+            } else {
+                self?.friends = (j?["friends"].arrayValue.map({jo in
+                    return Friend(userId: jo["userid"].intValue, userName: jo["username"].stringValue)
+                }))!
+            }
+
+            self?.tableView.reloadData()
+        })
+
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -38,15 +82,17 @@ extension FriendsViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: return count
-        return 0
+        return friends.count
     }
 
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell", for: indexPath)
+
+        cell.textLabel?.text = friends[indexPath.row].userName
 
         return cell
      }
+
      override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -76,16 +122,16 @@ extension FriendsViewController : UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-//        filtered = data.filter({ (text) -> Bool in
-//            let tmp: NSString = text
-//            let range = tmp.rangeOfString(searchText, options: NSStringCompareOptions.CaseInsensitiveSearch)
-//            return range.location != NSNotFound
-//        })
-//        if(filtered.count == 0){
-//            searchActive = false;
-//        } else {
-//            searchActive = true;
-//        }
+        filtered = friends.filter({ (friend) -> Bool in
+            return friend.userName == searchText
+        })
+
+        if(filtered.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+
         self.tableView.reloadData()
     }
 }

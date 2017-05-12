@@ -9,8 +9,20 @@ class ConnectViewController: UIViewController {
         username.resignFirstResponder()
         password.resignFirstResponder()
 
-        print(username.text!)
-        print(password.text!)
+        HttpService.post("/users/login", withBody: ["username": username.text!, "password": password.text!], handler: {
+            [weak self] e, j in
+            if e != nil {
+                let alert = UIAlertController(title: "Oops", message: e.debugDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+            } else {
+                Data.UserId = Int(j!["userid"].stringValue)!
+                print("UserId: " + String(Data.UserId))
+                let alert = UIAlertController(title: "Done", message: "Welcome!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+            }
+        })
     }
 
     override func viewDidAppear(_ animated: Bool) {

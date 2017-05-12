@@ -2,6 +2,7 @@
   "name": "dist",
   "version": "1.0.0",
   "dependencies": {
+    "pg": "^6.1.5",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
   }

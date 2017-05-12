@@ -6,11 +6,13 @@
     "@types/aws-sdk": "^2.7.0",
     "@types/form-data": "0.0.33",
     "@types/node": "^7.0.18",
+    "@types/pg": "^6.1.40",
     "@types/request": "0.0.43",
     "@types/request-promise": "^4.1.33",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-lambda-deploy": "^0.2.0",
-    "gulp-zip": "^4.0.0"
+    "gulp-zip": "^4.0.0",
+    "pg-format": "^1.0.4"
   }
 }
