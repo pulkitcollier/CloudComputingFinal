@@ -1,0 +1,20 @@
+<ion-view title="Friends" id="page7">
+  <ion-nav-buttons side="right" class="has-header">
+    <button class="button button-icon icon ion-person-add" href="#/page1/add-friend"></button>
+  </ion-nav-buttons>
+<ion-content ng-controller="friendsCtrl" class="has-header">
+    <div class="bar bar-header item-input-inset">
+          <input type="text" placeholder=" Search" ng-model="search.name" 
+                  style="width:100%; padding-left:11px;" />
+      </div>
+    <ion-list>
+      <ion-item  type="item-text-wrap" href="#/page1/friendDetail/{{friend.id}}"
+        ng-repeat="friend in friends | filter:search | limitTo:listlength">
+        {{friend.name}}
+      </ion-item>
+    </ion-list>
+     <ion-infinite-scroll ng-if="listlength<=friends.length" 
+            on-infinite="loadMore()" distance="3%">
+      </ion-infinite-scroll>
+  </ion-content>
+</ion-view>
