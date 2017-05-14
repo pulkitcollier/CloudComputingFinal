@@ -50,7 +50,6 @@ export async function handler(event: any, context: Lambda.Context, callback: Lam
                 let month = new Date();
                 month.setDate(month.getDate() - 30);
 
-                // FIXME: select actual people count
                 let weekgood = (await DbConnection.query('SELECT COUNT(*) FROM tweet WHERE userid = $1 AND tweetscore > 0 AND createtime > $2', [userid, week.toUTCString()]))[0].count;
                 let weekneutral = (await DbConnection.query('SELECT COUNT(*) FROM tweet WHERE userid = $1 AND tweetscore = 0 AND createtime > $2', [userid, week.toUTCString()]))[0].count;
                 let weekbad = (await DbConnection.query('SELECT COUNT(*) FROM tweet WHERE userid = $1 AND tweetscore < 0 AND createtime > $2', [userid, week.toUTCString()]))[0].count;
@@ -78,31 +77,31 @@ export async function handler(event: any, context: Lambda.Context, callback: Lam
 
                 let sns = new AWS.SNS();
                 if (useemail) {
-                    // sns.subscribe({
-                    //     Protocol: 'email',
-                    //     TopicArn: 'arn:aws:sns:us-east-1:472999334680:AlertEmail',
-                    //     Endpoint: res[0].email
-                    // }, (e, d) => {
+                    sns.subscribe({
+                        Protocol: 'email',
+                        TopicArn: 'arn:aws:sns:us-east-1:472999334680:AlertEmail',
+                        Endpoint: res[0].email
+                    }, (e, d) => {
 
-                    // });
+                    });
                 } else {
-                    // sns.unsubscribe({
-                    //     SubscriptionArn:
-                    // });
+                    sns.unsubscribe({
+                        SubscriptionArn:
+                    });
                 }
 
                 if (usesms) {
-                    // sns.subscribe({
-                    //     Protocol: 'sms',
-                    //     TopicArn: 'arn:aws:sns:us-east-1:472999334680:AlertSMS',
-                    //     Endpoint: res[0].phonenumber
-                    // }, (e, d) => {
+                    sns.subscribe({
+                        Protocol: 'sms',
+                        TopicArn: 'arn:aws:sns:us-east-1:472999334680:AlertSMS',
+                        Endpoint: res[0].phonenumber
+                    }, (e, d) => {
 
-                    // });
+                    });
                 } else {
-                    // sns.unsubscribe({
-                    //     SubscriptionArn:
-                    // });
+                    sns.unsubscribe({
+                        SubscriptionArn:
+                    });
                 }
                 callback(null, 'OK');
             }
